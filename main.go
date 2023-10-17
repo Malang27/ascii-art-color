@@ -9,7 +9,9 @@ import (
 func main() {
 
 	// Vérifier si des arguments ont été fournis en ligne de commande
-	if len(os.Args) == 1 {
+	if len(os.Args) <= 1 {
+		fmt.Println("Usage: go run . [OPTION] [STRING]")
+		fmt.Println("\nEX: go run . --color=<color> <letters to be colored> 'something'")
 		return
 	}
 
@@ -44,7 +46,6 @@ func main() {
 	if sliceData != "" {
 		num1, num2, slice = IndexSlice(sliceData)
 	}
-
 	// 3. Écrire le texte ligne par ligne avec la couleur nécessaire
 	args := strings.Split(str, "\\r\\n")
 	for _, word := range args {
